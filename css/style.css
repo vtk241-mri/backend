@@ -1,0 +1,8 @@
+body {
+  position: relative;
+  overflow: hidden;
+}
+.square {
+  position: absolute;
+  background-color: red;
+}
