@@ -9,8 +9,7 @@
 </head>
 
 <body>
-    <?php include_once("components/lab1.php"); ?>
-
+    <?php include_once("lab1.php"); ?>
 </body>
 
 </html>
