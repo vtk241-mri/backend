@@ -22,6 +22,12 @@ $formData = $_SESSION['form_data'];
 <body>
     <a href="lab2.php">Завдання 1-2</a>
 
+    <form method="post" action="lab2.php">
+        <label for="cities">Введіть міста (через пробіл):</label>
+        <input type="text" id="cities" name="cities" required>
+        <button type="submit">Сортувати</button>
+    </form>
+
     <p>Вибрана мова: <?= $languages[$lang] ?></p>
     <div class="langs">
         <a href="index.php?lang=ukr">
@@ -87,6 +93,8 @@ $formData = $_SESSION['form_data'];
 
         <button type="submit">Обчислити</button>
     </form>
+
+    <a href="/">Home Page</a>
 </body>
 
 </html>

@@ -16,7 +16,12 @@ function sortCities($cities)
     sort($cityArray);
     return implode(" ", $cityArray);
 }
-echo sortCities("Kyiv Lviv Zhytomyr Dnipro") . "<br>";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $cities = $_POST['cities'];
+    $sortedCities = sortCities($cities);
+    echo "<p>Відсортовані міста: $sortedCities</p>";
+}
 
 // Task 1.3
 function getFileName($path)
