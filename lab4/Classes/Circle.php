@@ -3,13 +3,13 @@ namespace Classes;
 class Circle
 {
     /** @var float $x Координата X центру кола */
-    public $x;
+    private $x;
 
     /** @var float $y Координата Y центру кола */
-    public $y;
+    private $y;
 
     /** @var float $radius Радіус кола */
-    public $radius;
+    private $radius;
 
     /**
      * Конструктор класу Circle.
@@ -89,6 +89,18 @@ class Circle
     }
 
     /**
+     * Перевіряє, чи перетинається дане коло з іншим колом.
+     *
+     * @param Circle $other Інше коло
+     * @return bool
+     */
+    public function intersects(Circle $other)
+    {
+        $distance = sqrt(pow($this->x - $other->getX(), 2) + pow($this->y - $other->getY(), 2));
+        return $distance <= ($this->radius + $other->getRadius());
+    }
+
+    /**
      * Повертає рядок, що описує коло.
      *
      * @return string
@@ -98,3 +110,5 @@ class Circle
         return "Коло з центром в ({$this->x}, {$this->y}) і радіусом {$this->radius}";
     }
 }
+
+?>

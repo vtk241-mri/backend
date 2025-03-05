@@ -44,6 +44,21 @@ echo "Радіус: " . $circle->getRadius() . "<br>";
 
 $circle->setX(8);
 $circle->setY(12);
-$circle->setRadius(-1);
+$circle->setRadius(5);
 
 echo "Оновлене коло: " . $circle . "<br>";
+
+// Task 6
+echo "<h2>Task 6</h2>";
+
+$circle1 = new Circle(5, 9, 5);
+$circle2 = new Circle(5, 5, 10);
+
+echo $circle1 . "<br>";
+echo $circle2 . "<br>";
+
+if ($circle1->intersects($circle2)) {
+    echo "Кола перетинаються.<br>";
+} else {
+    echo "Кола не перетинаються.<br>";
+}
