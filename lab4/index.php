@@ -62,3 +62,30 @@ if ($circle1->intersects($circle2)) {
 } else {
     echo "Кола не перетинаються.<br>";
 }
+
+// Task 7
+echo "<h2>Task 7</h2>";
+
+use Text\Text;
+
+Text::writeFile("file1.txt", "Перший рядок файлу 1!");
+Text::writeFile("file1.txt", "Другий рядок файлу 2.");
+
+echo "Вміст файлу file1.txt:<br>";
+echo nl2br(Text::readFile("file1.txt")) . "<br>";
+
+Text::clearFile("file1.txt");
+
+echo "Після очищення file1.txt:<br>";
+echo nl2br(Text::readFile("file1.txt")) . "<br>";
+
+Text::writeFile("file2.txt", "Перший рядок файлу 2!");
+
+echo "Вміст файлу file2.txt:<br />";
+echo nl2br(Text::readFile("file2.txt")) . "<br />";
+
+Text::clearFile("file2.txt");
+
+echo "Після очищення file2.txt:<br>";
+echo nl2br(Text::readFile("file2.txt")) . "<br>";
+
