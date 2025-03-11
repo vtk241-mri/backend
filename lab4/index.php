@@ -136,3 +136,15 @@ echo "<br>";
 $programmer = new Programmer(160, 75, 72, ["PHP", "JavaScript"], 40);
 echo "Програміст виконує метод 'народження дитини':<br>";
 $programmer->birthChild();
+
+// Task 10
+echo "<h2>Task 10</h2>";
+
+$student = new Student(165, 65, 19, "Житомирська політехніка", 1);
+echo "Що робить студент:<br>";
+$student->cleanKitchen();
+echo "<br>";
+
+$programmer = new Programmer(180, 75, 25, ["PHP", "JavaScript"], 3);
+echo "Що робить програміст:<br>";
+$programmer->cleanRoom();

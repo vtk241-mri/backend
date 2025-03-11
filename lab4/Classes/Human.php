@@ -1,21 +1,23 @@
 <?php
 namespace Classes;
 /**
- * Абстрактний клас Human
+ * Інтерфейс HouseCleaning
  */
-abstract class Human
+interface HouseCleaning
+{
+    public function cleanRoom();
+    public function cleanKitchen();
+}
+
+/**
+ * Абстрактний клас Human, що реалізує HouseCleaning
+ */
+abstract class Human implements HouseCleaning
 {
     protected $height;
     protected $weight;
     protected $age;
 
-    /**
-     * Конструктор класу Human.
-     *
-     * @param int $height Зріст (см)
-     * @param int $weight Вага (кг)
-     * @param int $age Вік (років)
-     */
     public function __construct($height, $weight, $age)
     {
         $this->height = $height;
@@ -23,7 +25,6 @@ abstract class Human
         $this->age = $age;
     }
 
-    // Методи GET і SET
     public function getHeight()
     {
         return $this->height;
@@ -51,24 +52,17 @@ abstract class Human
         $this->age = $age;
     }
 
-    /**
-     * Метод "Народження дитини"
-     */
     public function birthChild()
     {
         echo "Народилася дитина!<br>";
         $this->birthMessage();
     }
 
-    /**
-     * Абстрактний метод "Повідомлення при народженні дитини".
-     * Кожен дочірній клас повинен реалізувати цей метод.
-     */
     abstract protected function birthMessage();
 }
 
 /**
- * Клас Student, що успадковує Human
+ * Клас Student, що успадковує Human і реалізує HouseCleaning
  */
 class Student extends Human
 {
@@ -105,17 +99,24 @@ class Student extends Human
         $this->course++;
     }
 
-    /**
-     * Реалізація абстрактного методу "Повідомлення при народженні дитини" для студента
-     */
     protected function birthMessage()
     {
         echo "Вітаємо нового студента!<br>";
     }
+
+    public function cleanRoom()
+    {
+        echo "Студент прибирає кімнату<br>";
+    }
+
+    public function cleanKitchen()
+    {
+        echo "Студент прибирає кухню<br>";
+    }
 }
 
 /**
- * Клас Programmer, що успадковує Human
+ * Клас Programmer, що успадковує Human і реалізує HouseCleaning
  */
 class Programmer extends Human
 {
@@ -154,12 +155,19 @@ class Programmer extends Human
         }
     }
 
-    /**
-     * Реалізація абстрактного методу "Повідомлення при народженні дитини" для програміста
-     */
     protected function birthMessage()
     {
         echo "Вітаємо майбутнього програміста!<br>";
+    }
+
+    public function cleanRoom()
+    {
+        echo "Програміст прибирає кімнату<br>";
+    }
+
+    public function cleanKitchen()
+    {
+        echo "Програміст прибирає кухню<br>";
     }
 }
 ?>
