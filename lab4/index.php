@@ -89,3 +89,36 @@ Text::clearFile("file2.txt");
 echo "Після очищення file2.txt:<br>";
 echo nl2br(Text::readFile("file2.txt")) . "<br>";
 
+// Task 8
+require_once "./Classes/Human.php";
+use Classes\Student;
+use Classes\Programmer;
+
+echo "<h2>Task 8</h2>";
+
+// Створення об'єкта Student
+$student = new Student(165, 65, 19, "Житомирська політехніка", 1);
+
+echo "Студент навчається у " . $student->getUniversity() . " на курсі " . $student->getCourse() . ".<br>";
+$student->promoteToNextCourse();
+echo "Після переведення на новий курс: " . $student->getCourse() . "<br>";
+
+// Оновлення росту і ваги студента
+$student->setHeight(169);
+$student->setWeight(67);
+echo "Нові параметри студента: Зріст - " . $student->getHeight() . " см, Вага - " . $student->getWeight() . " кг.<br>";
+
+// Створення об'єкта Programmer
+$programmer = new Programmer(170, 70, 19, ["PHP", "JavaScript"], 2);
+
+echo "Програміст знає такі мови: " . implode(", ", $programmer->getLanguages()) . ".<br>";
+$programmer->addLanguage("Python");
+echo "Після додавання нової мови: " . implode(", ", $programmer->getLanguages()) . ".<br>";
+
+$programmer->setExperience(3);
+echo "Оновлений досвід програміста: " . $programmer->getExperience() . " років.<br>";
+
+// Оновлення росту і ваги програміста
+$programmer->setHeight(172);
+$programmer->setWeight(68);
+echo "Нові параметри програміста: Зріст - " . $programmer->getHeight() . " см, Вага - " . $programmer->getWeight() . " кг.<br>";
