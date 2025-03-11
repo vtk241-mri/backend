@@ -1,13 +1,13 @@
 <?php
 namespace Classes;
 /**
- * Клас Human
+ * Абстрактний клас Human
  */
-class Human
+abstract class Human
 {
-    private $height;
-    private $weight;
-    private $age;
+    protected $height;
+    protected $weight;
+    protected $age;
 
     /**
      * Конструктор класу Human.
@@ -50,25 +50,31 @@ class Human
     {
         $this->age = $age;
     }
+
+    /**
+     * Метод "Народження дитини"
+     */
+    public function birthChild()
+    {
+        echo "Народилася дитина!<br>";
+        $this->birthMessage();
+    }
+
+    /**
+     * Абстрактний метод "Повідомлення при народженні дитини".
+     * Кожен дочірній клас повинен реалізувати цей метод.
+     */
+    abstract protected function birthMessage();
 }
 
 /**
- * Клас Student успадковує Human
+ * Клас Student, що успадковує Human
  */
 class Student extends Human
 {
     private $university;
     private $course;
 
-    /**
-     * Конструктор класу Student.
-     *
-     * @param int $height Зріст (см)
-     * @param int $weight Вага (кг)
-     * @param int $age Вік (років)
-     * @param string $university Назва університету
-     * @param int $course Курс навчання
-     */
     public function __construct($height, $weight, $age, $university, $course)
     {
         parent::__construct($height, $weight, $age);
@@ -94,32 +100,28 @@ class Student extends Human
         $this->course = $course;
     }
 
-    /**
-     * Переведення студента на наступний курс.
-     */
     public function promoteToNextCourse()
     {
         $this->course++;
     }
+
+    /**
+     * Реалізація абстрактного методу "Повідомлення при народженні дитини" для студента
+     */
+    protected function birthMessage()
+    {
+        echo "Вітаємо нового студента!<br>";
+    }
 }
 
 /**
- * Клас Programmer успадковує Human
+ * Клас Programmer, що успадковує Human
  */
 class Programmer extends Human
 {
     private $languages = [];
     private $experience;
 
-    /**
-     * Конструктор класу Programmer.
-     *
-     * @param int $height Зріст (см)
-     * @param int $weight Вага (кг)
-     * @param int $age Вік (років)
-     * @param array $languages Масив мов програмування
-     * @param int $experience Досвід роботи (років)
-     */
     public function __construct($height, $weight, $age, $languages, $experience)
     {
         parent::__construct($height, $weight, $age);
@@ -145,16 +147,19 @@ class Programmer extends Human
         $this->experience = $experience;
     }
 
-    /**
-     * Додає нову мову програмування.
-     *
-     * @param string $language Назва мови програмування
-     */
     public function addLanguage($language)
     {
         if (!in_array($language, $this->languages)) {
             $this->languages[] = $language;
         }
+    }
+
+    /**
+     * Реалізація абстрактного методу "Повідомлення при народженні дитини" для програміста
+     */
+    protected function birthMessage()
+    {
+        echo "Вітаємо майбутнього програміста!<br>";
     }
 }
 ?>

@@ -122,3 +122,17 @@ echo "Оновлений досвід програміста: " . $programmer->g
 $programmer->setHeight(172);
 $programmer->setWeight(68);
 echo "Нові параметри програміста: Зріст - " . $programmer->getHeight() . " см, Вага - " . $programmer->getWeight() . " кг.<br>";
+
+// Task 9
+echo "<h2>Task 9</h2>";
+
+// Створюємо студента
+$student = new Student(165, 65, 19, "Житомирська політехніка", 1);
+echo "Студент виконує метод 'народження дитини':<br>";
+$student->birthChild();
+echo "<br>";
+
+// Створюємо програміста
+$programmer = new Programmer(160, 75, 72, ["PHP", "JavaScript"], 40);
+echo "Програміст виконує метод 'народження дитини':<br>";
+$programmer->birthChild();
