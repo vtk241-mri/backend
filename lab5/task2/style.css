@@ -1,0 +1,27 @@
+table {
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: 5px;
+}
+
+th {
+  background-color: beige;
+}
+form {
+  display: grid;
+  gap: 12px;
+  width: 300px;
+}
+label {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 2fr;
+}
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: blue;
+  margin-top: 24px;
+}
